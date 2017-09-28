@@ -1,0 +1,38 @@
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: E:/git/opengl/third/glfw-3.2.1-Build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_41f4e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Microsoft (R) 生成引擎版本 14.0.25420.1
+版权所有(C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2017/9/26 23:09:37。
+节点 1 上的项目“E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\cmTC_41f4e.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_41f4e.dir\Debug\”。
+  正在创建目录“E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_41f4e.dir\Debug\cmTC_41f4e.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_41f4e.dir\Debug\cmTC_41f4e.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_41f4e.dir\Debug\\" /Fd"cmTC_41f4e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 19.00.24215.1 版
+  版权所有(C) Microsoft Corporation。保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_41f4e.dir\Debug\\" /Fd"cmTC_41f4e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+  
+  CheckIncludeFile.c
+E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\cmTC_41f4e.vcxproj]
+已完成生成项目“E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\cmTC_41f4e.vcxproj”(默认目标)的操作 - 失败。
+
+生成失败。
+
+“E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\cmTC_41f4e.vcxproj”(默认目标) (1) ->
+(ClCompile 目标) -> 
+  E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory [E:\git\opengl\third\glfw-3.2.1-Build\CMakeFiles\CMakeTmp\cmTC_41f4e.vcxproj]
+
+    0 个警告
+    1 个错误
+
+已用时间 00:00:02.09
+
+

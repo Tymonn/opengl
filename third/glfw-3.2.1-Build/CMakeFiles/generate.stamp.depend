@@ -1,0 +1,35 @@
+# CMake generation dependency list for this directory.
+E:/git/opengl/third/glfw-3.2.1/CMakeLists.txt
+E:/git/opengl/third/glfw-3.2.1-Build/CMakeFiles/3.9.3/CMakeSystem.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CMakeSystemSpecificInitialize.cmake
+E:/git/opengl/third/glfw-3.2.1-Build/CMakeFiles/3.9.3/CMakeCCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/Platform/Windows-MSVC.cmake
+E:/git/opengl/third/glfw-3.2.1-Build/CMakeFiles/3.9.3/CMakeRCCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/FindPackageMessage.cmake
+E:/git/opengl/third/glfw-3.2.1/CMake/modules/FindVulkan.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/FindDoxygen.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.9/Modules/WriteBasicConfigVersionFile.cmake
+E:/git/opengl/third/glfw-3.2.1/src/glfw3Config.cmake.in
+C:/Program Files/CMake/share/cmake-3.9/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+E:/git/opengl/third/glfw-3.2.1/src/glfw_config.h.in
+E:/git/opengl/third/glfw-3.2.1/src/glfw3.pc.in
+E:/git/opengl/third/glfw-3.2.1/cmake_uninstall.cmake.in
