@@ -7,14 +7,15 @@
 #include <iostream>
 #include <sstream>
 
+//vertex
 float vertices[] = {
     -0.5f, -0.5f, 0.0f,
-    0.5f, -0.5f, 0.0f,
-    0.0f,  0.5f, 0.0f
+    0.5f, -0.5f, 1.0f,
+    0.0f,  0.5f, 1.0f
 };
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
-    glViewport(0, 0, 600, 400);
+    glViewport(0, 0, 800, 600);
 }
 
 void processInput(GLFWwindow *window)
@@ -46,14 +47,22 @@ int main(int argc, char** argv)
         return -1;
     }
 
-    unsigned int VAO;
+    unsigned int VAO = 0; 
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
 
-    unsigned int VBO;
+    //create a vertex buffer object to manage vertex data memory in GPU
+    //by using VBO, we can copy big data from CPU memory to GPU memory at one time
+    unsigned int VBO = 0;
     glGenBuffers(1, &VBO);
+    
+    //GL_ARRAY_BUFFER specifies the buffer type of VBO, and more importantly,
+    //it will be used as the target when accessing the buffer memory
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    
     //copy the vertex data into the video card memory ,which now managed by VBO (vertex buffer object)
+    //GL_ARRAY_BUFFER indicates the target: the GPU memory managed by VBO, which binded to GL_ARRAY_BUFFER
+    //So, OpenGL donnot allow binding multi type/target with one Buffer Object
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     //now we need shaders to deal with the data
@@ -64,6 +73,8 @@ int main(int argc, char** argv)
     //But normally, the input coordinates are not NDC, we should transform them into NDC in the shader program
     std::stringstream shader_stream;
     shader_stream << "#version 330 core"<<std::endl;
+    //location = 0 specifies that in our shader ,the vertex position attribute can be linked by index 0
+    //because there may be more than one vertex attributes with a OpenGL Vertex
     shader_stream << "layout (location = 0) in vec3 aPos;" << std::endl;
     shader_stream << "void main() {" << std::endl;
     shader_stream << "    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);" << std::endl;
@@ -71,7 +82,7 @@ int main(int argc, char** argv)
     std::string string_source = shader_stream.str();
     const GLchar* source = string_source.c_str();
     
-    //the shader will be referenced by an ID
+    //This shader object will be referenced by an ID
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &source, NULL);
     glCompileShader(vertexShader);
@@ -81,7 +92,7 @@ int main(int argc, char** argv)
     //success indicates whether the shader is compiled successfully
     if (!success) {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+        std::cout << "Error: vertex shader compiled failed.\n" << infoLog << std::endl;
 
         return 1;
     }
@@ -91,7 +102,7 @@ int main(int argc, char** argv)
     shader_stream << "#version 330 core" << std::endl;
     shader_stream << "out vec4 FragColor;" << std::endl;
     shader_stream << "void main() {" << std::endl;
-    shader_stream << "    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);" << std::endl;
+    shader_stream << "    FragColor = vec4(1.0f, 0.5f, 0.2f, 0.5f);" << std::endl;
     shader_stream << "}" << std::endl;
     string_source = shader_stream.str();
     source = string_source.c_str();
@@ -104,7 +115,7 @@ int main(int argc, char** argv)
     if (!success) {
         memset(infoLog, 0, sizeof(infoLog));
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        std::cout << "ERROR::SHADER::Fragment::COMPILATION_FAILED\n" << infoLog << std::endl;
+        std::cout << "Error: fragment shader compiled failed.\n" << infoLog << std::endl;
 
         return 1;
     }
@@ -123,15 +134,23 @@ int main(int argc, char** argv)
     if (!success) {
         memset(infoLog, 0, sizeof(infoLog));
         glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+        std::cout << "Error: shader program linked failed.\n" << infoLog << std::endl;
+
+        return 1;
     }
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
-    //we should tell OpenGL how to link the vertex data into the vertex attributes of  the vertex shader
+    //The vertex shader allows us to specify any input data in the form of vertex attributes(this allows for great flexibility)
+    //it does mean we have to manually specify what part of our input data goes to which vertex attribute in the vertex shader
+    //ie£¬we should specify the map relationship between our data and the vertex attributes in the vertex shader, so the shader
+    //would know how to interpret the data.
+    //The first parameter 0 specify the attribute index we want to map
+    //the vertex attribute which can be indexed by 0 is vertex location(defined in the shader source code)
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-
-    glViewport(0, 0, 600, 400);
+    
+    glViewport(0, 0, 800, 600);
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
@@ -140,7 +159,7 @@ int main(int argc, char** argv)
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(shaderProgram);
-        glBindVertexArray(VAO);
+        //glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
